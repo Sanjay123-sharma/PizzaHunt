@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Margherita",
+    "category": "Veg",
+    "price": 199,
+    "description": "Classic delight with 100% real mozzarella cheese.",
+    "image": "https://www.dominos.co.in/files/items/Margherit.jpg",
+    "rating": 4.2,
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "Farmhouse",
+    "category": "Veg",
+    "price": 299,
+    "description": "Delightful combination of onion, capsicum, tomato & mushroom.",
+    "image": "https://www.dominos.co.in/files/items/Farmhouse.jpg",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "Peppy Paneer",
+    "category": "Veg",
+    "price": 329,
+    "description": "Flavorful trio of juicy paneer, crisp capsicum and spicy red paprika.",
+    "image": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
+    "rating": 4.6,
+    "inStock": true
+  },
+  {
+    "id": 4,
+    "name": "Mexican Green Wave",
+    "category": "Veg",
+    "price": 319,
+    "description": "Mexican herbs sprinkled on onion, capsicum, tomato & jalapeno.",
+    "image": "https://www.dominos.co.in/files/items/Mexican_Green_Wave.jpg",
+    "rating": 4.3,
+    "inStock": false
+  },
+  {
+    "id": 5,
+    "name": "Deluxe Veggie",
+    "category": "Veg",
+    "price": 339,
+    "description": "Veg delight with onion, capsicum, grilled mushroom, corn & paneer.",
+    "image": "https://www.dominos.co.in/files/items/Deluxe_Veggie.jpg",
+    "rating": 4.4,
+    "inStock": true
+  },
+  {
+    "id": 6,
+    "name": "Veg Extravaganza",
+    "category": "Veg",
+    "price": 379,
+    "description": "Black olives, capsicum, onion, grilled mushroom, corn, tomato & jalapeno with extra cheese.",
+    "image": "https://www.dominos.co.in/files/items/Veg_Extravaganza.jpg",
+    "rating": 4.7,
+    "inStock": false
+  },
+  {
+    "id": 9,
+    "name": "Pepper Barbecue Chicken",
+    "category": "Non-Veg",
+    "price": 299,
+    "description": "Pepper barbecue chicken for that extra zing.",
+    "image": "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": 10,
+    "name": "Chicken Sausage",
+    "category": "Non-Veg",
+    "price": 289,
+    "description": "American classic! Spicy, herby chicken sausage.",
+    "image": "https://www.dominos.co.in/files/items/Chicken_Sausage.jpg",
+    "rating": 4.1,
+    "inStock": true
+  },
+  {
+    "id": 11,
+    "name": "Chicken Golden Delight",
+    "category": "Non-Veg",
+    "price": 349,
+    "description": "Barbecue chicken with golden corn and extra cheese.",
+    "image": "https://www.dominos.co.in/files/items/Chicken_Golden_Delight.jpg",
+    "rating": 4.6,
+    "inStock": true
+  },
+  {
+    "id": 20,
+    "name": "Double Cheese Margherita",
+    "category": "Veg",
+    "price": 229,
+    "description": "Loaded with extra cheese for cheese lovers.",
+    "image": "https://www.dominos.co.in/files/items/Double_Cheese_Margherita.jpg",
+    "rating": 4.4,
+    "inStock": true
+  }
+]
