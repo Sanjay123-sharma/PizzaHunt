@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router';
 
-
 export default function Footer() {
   return (
     <footer className="bg-[#0f172a] text-gray-300 px-6 py-10">
@@ -10,11 +9,11 @@ export default function Footer() {
         <div>
           <div className="flex items-center space-x-2 mb-2">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png"
+              src="https://img.icons8.com/pin/100/pizza.png"
               alt="Pizza Icon"
               className="w-5 h-5"
             />
-            <h2 className="text-white font-bold text-lg">PizzaHunt</h2>
+            <h2 className="font-bold text-lg text-orange-500">PizzaHunt</h2>
           </div>
           <p className="text-sm">
             Serving the best pizzas in town since 1985. Fresh ingredients,

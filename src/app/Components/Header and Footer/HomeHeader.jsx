@@ -11,7 +11,7 @@ export default function HomeHeader({ search, setSearch }) {
       
         <div className="flex items-center space-x-2">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png"
+            src="https://img.icons8.com/pin/100/pizza.png"
             alt="Pizza Icon"
             className="w-7 h-7"
           />
