@@ -1,2 +1,19 @@
+@media (max-width: 360px) {
+  .header-logo {
+    font-size: 18px;
+  }
 
+  .nav-links a {
+    margin-left: 10px;
+    font-size: 12px;
+  }
 
+  .pizza-card h3 {
+    font-size: 14px;
+  }
+
+  .card-footer .price,
+  .card-footer button {
+    font-size: 12px;
+  }
+}
