@@ -49,11 +49,8 @@ export default function Shipping() {
       setFormError(errorMsg);
       return;
     }
-
-    
   };
 
-  
   const handleRazorpay = () => {
     // in option we add configurations
     const options = {

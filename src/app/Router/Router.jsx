@@ -17,7 +17,10 @@ export default function Router() {
         {
             path:"/",
             element:(
-         <Suspense fallback={<div><h1>Loading...</h1></div>}>
+         <Suspense fallback={
+          <div className="w-20 h-20 border-4 border-dashed rounded-full animate-spin border-orange-500 ml-auto mr-auto display-block  mt-20"></div>
+
+         }>
             <Home/>
          </Suspense>
         
