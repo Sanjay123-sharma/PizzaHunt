@@ -32,7 +32,7 @@ export default function Shipping() {
       errorMsg = 'Please fill all delivery fields correctly.';
     } 
 
-    if(payment==='Cash on Delivery'){
+    else if(payment==='Cash on Delivery'){
       setFormError('');
     dispatch(addOrders());
     dispatch(removeCart());
