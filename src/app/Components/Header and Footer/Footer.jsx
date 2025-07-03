@@ -16,7 +16,7 @@ export default function Footer() {
             <h2 className="font-bold text-lg text-orange-500">PizzaHunt</h2>
           </div>
           <p className="text-sm">
-            Serving the best pizzas in town since 1985. Fresh ingredients,
+            Serving the best pizzas in town since 2015. Fresh ingredients,
             authentic recipes, and fast delivery.
           </p>
         </div>
@@ -41,11 +41,11 @@ export default function Footer() {
             </li>
             <li className="flex items-center space-x-2">
               
-              <span>info@tonyspizza.com</span>
+              <span>info@pizzahunt.com</span>
             </li>
             <li className="flex items-center space-x-2">
              
-              <span>123 Pizza Street, Food City</span>
+              <span>123 Pizza Street, Amritsar</span>
             </li>
           </ul>
         </div>

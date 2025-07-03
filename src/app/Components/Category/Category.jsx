@@ -63,38 +63,41 @@ export default function Category() {
         <p className="text-gray-600 mb-6">Browse our delicious pizzas by category</p>
 
         {/* Radio Buttons */}
-        <div className="mb-6 space-x-4">
-          <label className="inline-flex items-center space-x-2">
-            <input
-              type="radio"
-              value="All"
-              checked={category === 'All'}
-              onChange={(e) => setCategory(e.target.value)}
-              className="form-radio text-orange-500"
-            />
-            <span>All</span>
-          </label>
-          <label className="inline-flex items-center space-x-2">
-            <input
-              type="radio"
-              value="Veg"
-              checked={category === 'Veg'}
-              onChange={(e) => setCategory(e.target.value)}
-              className="form-radio text-green-500"
-            />
-            <span>Veg</span>
-          </label>
-          <label className="inline-flex items-center space-x-2">
-            <input
-              type="radio"
-              value="Non-Veg"
-              checked={category === 'Non-Veg'}
-              onChange={(e) => setCategory(e.target.value)}
-              className="form-radio text-red-500"
-            />
-            <span>Non-Veg</span>
-          </label>
-        </div>
+        <div className="mb-6 flex space-x-6">
+  <label className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg border border-orange-400 bg-orange-50 hover:bg-orange-100 transition">
+    <input
+      type="radio"
+      value="All"
+      checked={category === 'All'}
+      onChange={(e) => setCategory(e.target.value)}
+      className="form-radio text-orange-500 focus:ring-orange-500"
+    />
+    <span className="text-orange-700 font-medium">All</span>
+  </label>
+
+  <label className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg border border-green-400 bg-green-50 hover:bg-green-100 transition">
+    <input
+      type="radio"
+      value="Veg"
+      checked={category === 'Veg'}
+      onChange={(e) => setCategory(e.target.value)}
+      className="form-radio text-green-500 focus:ring-green-500"
+    />
+    <span className="text-green-700 font-medium">Veg</span>
+  </label>
+
+  <label className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg border border-red-400 bg-red-50 hover:bg-red-100 transition">
+    <input
+      type="radio"
+      value="Non-Veg"
+      checked={category === 'Non-Veg'}
+      onChange={(e) => setCategory(e.target.value)}
+      className="form-radio text-red-500 focus:ring-red-500"
+    />
+    <span className="text-red-700 font-medium">Non-Veg</span>
+  </label>
+</div>
+
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

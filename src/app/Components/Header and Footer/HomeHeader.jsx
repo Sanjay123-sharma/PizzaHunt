@@ -21,7 +21,7 @@ export default function HomeHeader({ search, setSearch }) {
         </div>
 
     
-        <nav className="flex space-x-6 text-base font-medium">
+        <nav className="flex space-x-6 text-base font-medium ml-20">
           <NavLink
             to="/"
             className={({ isActive }) =>
