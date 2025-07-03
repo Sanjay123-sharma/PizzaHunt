@@ -16,8 +16,6 @@ export default function Shipping() {
   const [payment, setPayment] = useState('');
   const [formError, setFormError] = useState('');
 
-
-
   const Cart = useSelector((state) => state.food.Cart);
   const total = Cart.reduce((x, item) => x + Number(item.price * item.count), 0);
   const totalItems = Cart.length;
@@ -26,31 +24,21 @@ export default function Shipping() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    if (/^\d{0,10}$/.test(value)) {
-      setNumber(value);
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     let errorMsg = '';
-  
 
     if (!fname || !lname || !street || !state || !city || zipcode.length !== 6 || number.length!==10) {
       errorMsg = 'Please fill all delivery fields correctly.';
     } 
 
-    else if(payment==='Cash on Delivery'){
+    if(payment==='Cash on Delivery'){
       setFormError('');
     dispatch(addOrders());
     dispatch(removeCart());
    setTimeout(() => {
      navigate('/confirmation');
-
    }, 1000);
-  
 
     }else{
       handleRazorpay()
@@ -64,6 +52,7 @@ export default function Shipping() {
 
     
   };
+
   
   const handleRazorpay = () => {
     // in option we add configurations
@@ -159,15 +148,15 @@ export default function Shipping() {
                 className="col-span-2 w-full px-3 py-2 border rounded"
               />
               <input
-              type="text"
-              maxlength="10"
-              pattern="\d{10}"
-             oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-            placeholder="Enter 10-digit number"
-          onChange={handleChange}
-          className='col-span-2 w-full px-3 py-2 border rounded'
-/>
-
+              
+                type="number"
+                
+                maxLength="10"
+                placeholder="Enter 10 digit Mobile Number"
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+                className="col-span-2 w-full px-3 py-2 border rounded"
+              />
             </div>
 
             {/* Payment Section */}
@@ -199,7 +188,6 @@ export default function Shipping() {
             <button
               type="submit"
               className="w-full mt-8 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-md text-lg"
-              
             >
               {payment==="Cash on Delivery"?<h2>Place Order</h2>:<h2>Pay Now</h2>}
             </button>
