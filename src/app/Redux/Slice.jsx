@@ -37,7 +37,6 @@ export const MySlice=createSlice({
                 image:res.image,
                 category:res.category,
                 price:Number(res.price)
-
             })
         },
         removeItem:(state,action)=>{

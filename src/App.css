@@ -10,7 +10,6 @@
   }
 }
 /* Mobile-specific fixes for PizzaHunt */
-
 @media (max-width: 640px) {
   /* Reduce padding and font sizes */
   .mobile-heading {

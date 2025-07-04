@@ -1,48 +1,98 @@
-import React, { useState } from 'react';
-import Header from '../Components/Header and Footer/Header';
-import Footer from '../Components/Header and Footer/Footer';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { addOrders, removeCart } from '../Redux/Slice';
+import React, { useState } from "react";
+import Header from "../Components/Header and Footer/Header";
+import Footer from "../Components/Header and Footer/Footer";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addOrders, removeCart } from "../Redux/Slice";
 
 export default function Shipping() {
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
-  const [street, setStreet] = useState('');
-  const [state, setState] = useState('');
-  const [city, setCity] = useState('');
-  const [number,setNumber]=useState('')
-  const [zipcode, setZipcode] = useState('');
-  const [payment, setPayment] = useState('');
-  const [formError, setFormError] = useState('');
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [street, setStreet] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [number, setNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [payment, setPayment] = useState("");
+  const [formError, setFormError] = useState("");
 
+
+  
   const Cart = useSelector((state) => state.food.Cart);
-  const total = Cart.reduce((x, item) => x + Number(item.price * item.count), 0);
+
+  const total = Cart.reduce(
+    (x, item) => x + Number(item.price * item.count),
+    0
+  );
   const totalItems = Cart.length;
   const tax = Math.round(total * 0.08);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+ 
+ const handleMail=async()=>{
+    const orderSummary=`
+    Order :${Date.now()}
+    Items:${totalItems}
+    total:₹${total + tax}
+    Delivery Address : ${street} ${city} ${zipcode} ${state}
+    `;
+
+    await fetch('http://localhost:4000/send-order-mail',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify({
+        to:email,
+        name:`${fname}${lname}`,
+       orderSummary
+      })
+    }).then((res)=>{
+      res.text().then((data)=>{
+        alert("Order placed successfully and email sent !")
+      })
+    }).catch((err)=>{
+      console.log(err)
+      alert("Order placed but email not sent")
+    })
+
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    let errorMsg = '';
+    let errorMsg = "";
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (!fname || !lname || !street || !state || !city || zipcode.length !== 6 || number.length!==10) {
-      errorMsg = 'Please fill all delivery fields correctly.';
+    if (
+      !fname ||
+      !lname ||
+      !email||
+      !street ||
+      !state ||
+      !city ||
+      zipcode.length !== 6 ||
+      number.length !== 10 
+      
+    ) {
+      errorMsg = "Please fill all delivery fields correctly.";
     } 
-
-    else if(payment==='Cash on Delivery'){
-      setFormError('');
-    dispatch(addOrders());
-    dispatch(removeCart());
-   setTimeout(() => {
-     navigate('/confirmation');
-   }, 1000);
-
-    }else{
-      handleRazorpay()
-
+    else if (!emailRegex.test(email.trim())) {
+      errorMsg = "Enter a valid email";
+    } else if (payment === "Cash on Delivery") {
+      setFormError("");
+      dispatch(addOrders());
+       
+      dispatch(removeCart());
+      setTimeout(() => {
+        navigate("/confirmation");
+        handleMail()
+          
+      }, 1000);
+    } else {
+      handleRazorpay();
     }
 
     if (errorMsg) {
@@ -51,19 +101,23 @@ export default function Shipping() {
     }
   };
 
+ 
   const handleRazorpay = () => {
     // in option we add configurations
     const options = {
-      key: 'rzp_test_10bPvq7zFtWaxp', 
-      amount:(total+tax) *100, 
-      currency: 'INR',
+      key: "rzp_test_10bPvq7zFtWaxp",
+      amount: (total + tax) * 100,
+      currency: "INR",
       name: "PizzaHunt",
-      description: 'Pizza Order Payment',
+      description: "Pizza Order Payment",
       handler: function (response) {
         // On payment success
         dispatch(addOrders());
         dispatch(removeCart());
-        navigate('/confirmation');
+
+        navigate("/confirmation");
+         handleMail()
+       
       },
       // in prefill we add user details
       prefill: {
@@ -74,7 +128,7 @@ export default function Shipping() {
         address: `${street}, ${city}, ${state}, ${zipcode}`,
       },
       theme: {
-        color: '#F97316', 
+        color: "#F97316",
       },
     };
 
@@ -84,13 +138,19 @@ export default function Shipping() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <Header /> <br /><br />
+      <Header /> <br />
+      <br />
       <div className="max-w-7xl mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold mb-8">Checkout</h1>
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+        >
           <div className="lg:col-span-2 bg-white p-6 rounded shadow">
-            <h2 className="text-2xl font-semibold mb-4">Delivery Information</h2>
+            <h2 className="text-2xl font-semibold mb-4">
+              Delivery Information
+            </h2>
 
             {/* 🔴 Form-wide error block */}
             {formError && (
@@ -114,6 +174,14 @@ export default function Shipping() {
                 onChange={(e) => setLname(e.target.value)}
                 className="w-full px-3 py-2 border rounded"
               />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter Email"
+                className="w-full px-3 py-2 border rounded"
+              />
+
               <input
                 type="text"
                 placeholder="Street Address"
@@ -145,9 +213,7 @@ export default function Shipping() {
                 className="col-span-2 w-full px-3 py-2 border rounded"
               />
               <input
-              
                 type="number"
-                
                 maxLength="10"
                 placeholder="Enter 10 digit Mobile Number"
                 value={number}
@@ -179,14 +245,17 @@ export default function Shipping() {
                   Cash on Delivery
                 </label>
               </div>
-
             </div>
 
             <button
               type="submit"
               className="w-full mt-8 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-md text-lg"
             >
-              {payment==="Cash on Delivery"?<h2>Place Order</h2>:<h2>Pay Now</h2>}
+              {payment === "Cash on Delivery" ? (
+                <h2>Place Order</h2>
+              ) : (
+                <h2>Pay Now</h2>
+              )}
             </button>
           </div>
 
