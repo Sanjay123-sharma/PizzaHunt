@@ -20,7 +20,7 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        <div className="flex space-x-6 font-medium">
+        <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
           <NavLink
             to="/"
             className={({ isActive }) =>

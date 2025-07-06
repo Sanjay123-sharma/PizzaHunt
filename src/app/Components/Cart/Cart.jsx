@@ -28,14 +28,14 @@ export default function Cart() {
         {Cart.length === 0 ? (
           <h1 className="text-center text-2xl text-orange-600 font-semibold mt-20 ml-20">Cart is Empty</h1>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-bold mb-6">Order Cart</h2>
               {Cart.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between bg-white p-4 mb-4 rounded-lg shadow"
+                 className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 mb-4 rounded-lg shadow"
                 >
                 
                   <div className="flex items-center gap-4">
