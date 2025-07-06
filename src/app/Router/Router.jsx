@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router-dom'
 import About from '../Components/About Us/About';
+const  Contact =lazy(()=>import('../Components/Contact/Contact'));
 const  Orders=lazy(()=>import('../Order/Orders'));
 const  Confirmation=lazy(()=>import('../Order/Confirmation'));
 const  Shipping=lazy(()=>import('../Shipping/Shipping'));
@@ -60,6 +61,11 @@ export default function Router() {
         {
           path:'/orders',
           element:<Orders/>,
+          errorElement:<Error/>
+        },
+        {
+          path:'/contact',
+          element:<Contact/>,
           errorElement:<Error/>
         }
     ])

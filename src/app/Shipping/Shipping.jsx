@@ -4,6 +4,7 @@ import Footer from "../Components/Header and Footer/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addOrders, removeCart } from "../Redux/Slice";
+import Swal from "sweetalert2";
 
 export default function Shipping() {
   const [fname, setFname] = useState("");
@@ -52,11 +53,21 @@ export default function Shipping() {
       })
     }).then((res)=>{
       res.text().then((data)=>{
-        alert("Order placed successfully and email sent !")
+        Swal.fire({
+  title: "",
+  text: "Order Placed Successfully and email Sent!",
+  icon: "success",
+  iconColor:"orange"
+});
       })
     }).catch((err)=>{
       console.log(err)
-      alert("Order placed but email not sent")
+      Swal.fire({
+  title: "",
+  text: "Order Placed Successfully but email not Sent!",
+  icon: "success",
+  iconColor:'orange'
+});
     })
 
   }
