@@ -100,7 +100,7 @@ export default function Shipping() {
         navigate("/confirmation");
         handleMail()
           
-      }, 1000);
+      }, 500);
     } else {
       handleRazorpay();
     }
