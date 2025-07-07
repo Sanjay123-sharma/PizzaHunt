@@ -151,127 +151,120 @@ export default function Shipping() {
       <Header /> <br />
       <br />
       <div className="max-w-7xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold mb-8">Checkout</h1>
+  <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center sm:text-left">Checkout</h1>
 
-        <form
-          onSubmit={handleSubmit}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
-        >
-          <div className="lg:col-span-2 bg-white p-6 rounded shadow">
-            <h2 className="text-2xl font-semibold mb-4">
-              Delivery Information
-            </h2>
+  <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+    <div className="lg:col-span-2 bg-white p-4 sm:p-6 rounded shadow">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-4">Delivery Information</h2>
 
-            {/* 🔴 Form-wide error block */}
-            {formError && (
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-                <strong>Error:</strong> {formError}
-              </div>
-            )}
+      {formError && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-sm sm:text-base">
+          <strong>Error:</strong> {formError}
+        </div>
+      )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="First Name"
-                value={fname}
-                onChange={(e) => setFname(e.target.value)}
-               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={lname}
-                onChange={(e) => setLname(e.target.value)}
-               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
-              />
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter Email"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm sm:text-base "
-              />
-
-              <input
-                type="text"
-                placeholder="Street Address"
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-                className="col-span-2 w-full px-3 py-2 border rounded"
-              />
-              <input
-                type="text"
-                placeholder="City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
-              />
-              <input
-                type="text"
-                placeholder="State"
-                value={state}
-                onChange={(e) => setState(e.target.value)}
-               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
-              />
-              <input
-                type="text"
-                inputMode="numeric"
-                maxLength="6"
-                placeholder="ZIP Code"
-                value={zipcode}
-                onChange={(e) => setZipcode(e.target.value)}
-                className="col-span-2 w-full px-3 py-2 border rounded"
-              />
-              <input
-                type="number"
-                maxLength="10"
-                placeholder="Enter 10 digit Mobile Number"
-                value={number}
-                onChange={(e) => setNumber(e.target.value)}
-                className="col-span-2 w-full px-3 py-2 border rounded"
-              />
-            </div>
-
-            {/* Payment Section */}
-            <div className="mt-8">
-              <h2 className="text-2xl font-semibold mb-2">Payment Method</h2>
-              <div className="flex gap-6 items-center mb-4">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="Credit/Debit"
-                    onChange={(e) => setPayment(e.target.value)}
-                  />
-                  Credit/Debit
-                </label>
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="Cash on Delivery"
-                    onChange={(e) => setPayment(e.target.value)}
-                  />
-                  Cash on Delivery
-                </label>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full mt-8 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-md text-lg"
-            >
-              {payment === "Cash on Delivery" ? (
-                <h2>Place Order</h2>
-              ) : (
-                <h2>Pay Now</h2>
-              )}
-            </button>
-          </div>
-
-          <Summary2 total={total} totalItems={totalItems} tax={tax} />
-        </form>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input
+          type="text"
+          placeholder="First Name"
+          value={fname}
+          onChange={(e) => setFname(e.target.value)}
+          className="w-full px-4 py-2 border rounded text-sm sm:text-base"
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lname}
+          onChange={(e) => setLname(e.target.value)}
+          className="w-full px-4 py-2 border rounded text-sm sm:text-base"
+        />
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter Email"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm sm:text-base"
+        />
+        <input
+          type="text"
+          placeholder="Street Address"
+          value={street}
+          onChange={(e) => setStreet(e.target.value)}
+          className="sm:col-span-2 w-full px-4 py-2 border rounded"
+        />
+        <input
+          type="text"
+          placeholder="City"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          className="w-full px-4 py-2 border rounded text-sm sm:text-base"
+        />
+        <input
+          type="text"
+          placeholder="State"
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          className="w-full px-4 py-2 border rounded text-sm sm:text-base"
+        />
+        <input
+          type="text"
+          inputMode="numeric"
+          maxLength="6"
+          placeholder="ZIP Code"
+          value={zipcode}
+          onChange={(e) => setZipcode(e.target.value)}
+          className="sm:col-span-2 w-full px-4 py-2 border rounded"
+        />
+        <input
+          type="number"
+          maxLength="10"
+          placeholder="Enter 10 digit Mobile Number"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+          className="sm:col-span-2 w-full px-4 py-2 border rounded"
+        />
       </div>
+
+      <div className="mt-8">
+        <h2 className="text-xl sm:text-2xl font-semibold mb-2">Payment Method</h2>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center mb-4 text-sm sm:text-base">
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="payment"
+              value="Credit/Debit"
+              onChange={(e) => setPayment(e.target.value)}
+            />
+            Credit/Debit
+          </label>
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="payment"
+              value="Cash on Delivery"
+              onChange={(e) => setPayment(e.target.value)}
+            />
+            Cash on Delivery
+          </label>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        className="w-full mt-8 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-md text-base sm:text-lg transition duration-200"
+      >
+        {payment === "Cash on Delivery" ? (
+          <h2>Place Order</h2>
+        ) : (
+          <h2>Pay Now</h2>
+        )}
+      </button>
+    </div>
+
+    <Summary2 total={total} totalItems={totalItems} tax={tax} />
+  </form>
+</div>
+
       <Footer />
     </div>
   );
