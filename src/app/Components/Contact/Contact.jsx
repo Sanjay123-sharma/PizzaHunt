@@ -30,7 +30,7 @@ export default function Contact() {
    const handleMail=async()=>{
         const query=formik.values.message
 
-         await fetch('http://localhost:4000/contact-us-mail',{
+         await fetch(`${process.env.REACT_APP_API_URL}/contact-us-mail`,{
               method:'POST',
               headers:{
                 'content-type':'application/json'

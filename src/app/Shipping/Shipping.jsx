@@ -18,7 +18,6 @@ export default function Shipping() {
   const [payment, setPayment] = useState("");
   const [formError, setFormError] = useState("");
 
-
   
   const Cart = useSelector((state) => state.food.Cart);
 
@@ -41,7 +40,7 @@ export default function Shipping() {
     Delivery Address : ${street} ${city} ${zipcode} ${state}
     `;
 
-    await fetch('http://localhost:4000/send-order-mail',{
+    await fetch(`${process.env.REACT_APP_API_URL}/send-order-mail`,{
       method:'POST',
       headers:{
         'content-type':'application/json'
