@@ -39,7 +39,7 @@ export default function Shipping() {
     total:₹${total + tax}
     Delivery Address : ${street} ${city} ${zipcode} ${state}
     `;
-
+    
     await fetch(`${process.env.REACT_APP_API_URL}/send-order-mail`,{
       method:'POST',
       headers:{
@@ -175,21 +175,21 @@ export default function Shipping() {
                 placeholder="First Name"
                 value={fname}
                 onChange={(e) => setFname(e.target.value)}
-                className="w-full px-3 py-2 border rounded"
+               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
               />
               <input
                 type="text"
                 placeholder="Last Name"
                 value={lname}
                 onChange={(e) => setLname(e.target.value)}
-                className="w-full px-3 py-2 border rounded"
+               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
               />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter Email"
-                className="w-full px-3 py-2 border rounded"
+               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
               />
 
               <input
@@ -204,14 +204,14 @@ export default function Shipping() {
                 placeholder="City"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="w-full px-3 py-2 border rounded"
+               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
               />
               <input
                 type="text"
                 placeholder="State"
                 value={state}
                 onChange={(e) => setState(e.target.value)}
-                className="w-full px-3 py-2 border rounded"
+               className="w-full px-3 py-2 border rounded text-sm sm:text-base"
               />
               <input
                 type="text"
